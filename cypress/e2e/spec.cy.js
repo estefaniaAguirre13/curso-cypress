@@ -1,3 +1,4 @@
+import { CartMethods } from "./pages/cart/cart.methods";
 import { LoginMethods } from "./pages/login/login.methods";
 
 describe('template spec', () => {
@@ -5,9 +6,8 @@ describe('template spec', () => {
     const usuario = 'random01';
     const contrasena = 'random01'
     cy.visit('https://www.demoblaze.com/index.html')
-    cy.get('a[data-target="#logInModal"]').click()
-    LoginMethods.login(usuario, contrasena)
-    cy.get('a#nameofuser').should('contain.te', '')
-    cy.wait(500000)
+    cy.wait(30000)
+    CartMethods.clickOnDeleteLink('Nokia lumia 1520')
+    cy.wait(30000)
   })
 })
